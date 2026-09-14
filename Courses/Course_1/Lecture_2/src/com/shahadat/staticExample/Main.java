@@ -14,5 +14,30 @@ public class Main {
         System.out.println(mati.name);
         System.out.println(Human.population);
         System.out.println(Human.population);
+
+        //greeting(); // Inside a static method you cannot use anything that is not static
+    }
+
+    static void fun(){
+        // greeting();
+        // Without specifying which instance this(`greeting()`) belongs to
+        // I cannot use it over here.
+
+        // but we can do this in the way below:
+        // you cannot access not static stuff referencing
+        // their instances in a static context.
+        // Hence, here I am referencing it.
+        Main obj = new Main();
+        obj.greeting();
+
+    }
+
+    void fun2(){
+        greeting();
+    }
+
+    // We know, that something which is not static, belongs to an object.
+    void greeting(){
+        System.out.println("Hello World!");
     }
 }
