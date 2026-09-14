@@ -34,5 +34,8 @@ public class Main {
 
         BoxWeight box7 = new BoxWeight(box5);
         System.out.println("l: "+box7.l+" |  h: "+box7.h+" |  w: "+box7.w+" |  weight: "+box7.weight);
+
+        BoxPrice boxP = new BoxPrice(20, 40, 50);
+        System.out.println(boxP);
     }
 }

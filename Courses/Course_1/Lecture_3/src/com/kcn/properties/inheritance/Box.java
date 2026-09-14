@@ -48,4 +48,7 @@ public class Box {
 /* Types of Inheritance
 * i. Single Inheritance: One class extends another class. Example: Box -> BoxWeight
 * ii. Multilevel Inheritance: Example: Box -> BoxWeight -> BoxPrice
+* iii. Multiple Inheritance: ...
+* iv. Heirarchical Inheritance: One class is inherited by many classes.
+* v. Hybrid Inheritance: Combination of single and multiple inheritance.
 * */
