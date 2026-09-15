@@ -8,4 +8,9 @@ public class Circle extends Shapes{
     void area(){
         System.out.println("Area is pi * r * r");
     }
+
+    // You cannot override a method that is final.
+//    void area2(){
+//        System.out.println("Area is pi * r * r");
+//    }
 }

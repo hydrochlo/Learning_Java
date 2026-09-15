@@ -3,6 +3,11 @@ package com.kcn.properties.inheritance;
 public class BoxWeight extends Box {
     double weight;
 
+    //@Override
+    static void greeting(){
+        System.out.println("Hey, I am in BoxWeight.");
+    }
+
     public BoxWeight() {
         this.weight = -1;
     }
@@ -33,4 +38,6 @@ public class BoxWeight extends Box {
     }
 }
 
-
+/* Overriding Depends on Objects, Static does not depend on Object, So, Static methods cannot be overridden.
+*
+* */

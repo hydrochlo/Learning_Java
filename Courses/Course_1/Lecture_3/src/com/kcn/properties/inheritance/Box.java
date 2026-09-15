@@ -1,5 +1,8 @@
 package com.kcn.properties.inheritance;
 
+// We can prevent something from inheritance just by using
+// `final` keyword!!!
+
 public class Box {
     // private double l; -> If we use private here, then this `l` cannot be inherited
     /*NOTE:: Although a sub-class includes members of the super-class,
@@ -13,6 +16,10 @@ public class Box {
     double l;
     double h;
     double w;
+
+    static void greeting(){
+        System.out.println("Hey, I am in box.");
+    }
 
     Box(){
         this.l = -1;

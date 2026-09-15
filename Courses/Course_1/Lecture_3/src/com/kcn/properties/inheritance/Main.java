@@ -37,5 +37,12 @@ public class Main {
 
         BoxPrice boxP = new BoxPrice(20, 40, 50);
         System.out.println(boxP);
+
+
+        Box box8 = new BoxWeight();
+        Box.greeting();
+
+        BoxWeight box9 = new BoxWeight();
+        BoxWeight.greeting();
     }
 }
