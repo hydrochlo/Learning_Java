@@ -10,5 +10,7 @@ public class SubClass extends A {
         SubClass s = new SubClass(10, "Shahadat", 20);
 
         int x = s.rollNo; //
+
+        System.out.println(s instanceof A);
     }
 }
