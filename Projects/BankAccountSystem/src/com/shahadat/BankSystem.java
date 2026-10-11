@@ -1,36 +1,45 @@
 package com.shahadat;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class BankSystem {
     private BankAccount account;
     private Transaction transaction;
-    private BankAccount accountholders[];
-    private int currentIndex=0;
-    private int transindex = 0;
+//    private BankAccount accountholders[];
+    private ArrayList<BankAccount> accountholders;
+    private ArrayList<Transaction> transactionlist;
     private int deleteIndex = 0;
-    private Transaction transactionlist[];
 
-    public BankSystem(int numberOfAccounts)
+
+    public BankSystem()
     {
-        this.accountholders = new BankAccount[numberOfAccounts];
-        this.transactionlist = new Transaction[300];
+        this.accountholders = new ArrayList<>();
+        this.transactionlist = new ArrayList<>();
     }
 
     public void addAccount(String number, String name, double initBalance){
         BankAccount account = new BankAccount(number, name, initBalance);
-        this.accountholders[currentIndex] = account; //Adding account object to array
-        this.currentIndex++; //Increment the pointer
+        this.accountholders.add(account); //Adding account object to array
     }
 
+
+    // if arr is just a array then, arr[i] = 10;
+    // arr = {2,5,7}
+    // if arr is a arraylist then, arr.add(10);
+    // arr = {2,5,7,10}
+    // if arr is a arraylist then, arr.add(8);
+    // arr = {2,5,7,10,8}
+
     public void addTransaction(String accountNumber, double amount, String operation){
-        String tid = "t" + transindex + 1;
+        String tid = "t" + (transactionlist.size() + 1); // t01
         Transaction t = new Transaction(tid, amount, accountNumber, operation);
-        transactionlist[transindex] = t;
-        transindex++;
+        transactionlist.add(t); // a, b, c, t
     }
 
     public void printTransactionList(){
-        for(int i=0; i<this.transindex; i++){
-            System.out.println(this.transactionlist[i].transactionDetails());
+        for(int i=0; i<this.transactionlist.size(); i++){
+            System.out.println(this.transactionlist.get(i).transactionDetails());
         }
     }
 
@@ -52,36 +61,33 @@ public class BankSystem {
         return null; //If account not found
     }
 
-    public void printTransaction(String accNum){
-
-    }
-
     public int getNumberOfCustomers(){
-        return this.currentIndex;
+        return this.accountholders.size();
     }
 
     public void createAccount(BankAccount account)
     {
         this.account = account;
-        this.accountholders[currentIndex++] = account;
-        System.out.println("Created account");
+        this.accountholders.add(account);
+        System.out.println("!Created account!");
     }
 
     public void deleteAccount(String accountNumber)
     {
-        int i = 0;
-        for(i=0;i<this.currentIndex;i++){
-            if(this.accountholders[i].getAccountNumber().equals(accountNumber)){
-                break;
+        int found = 0;
+        for(int i = 0; i < this.accountholders.size(); i++){
+            if(this.accountholders.get(i).getAccountNumber().equals(accountNumber)){
+                this.accountholders.remove(i);
+                deleteIndex++;
+                System.out.println("Account Deleted. \nDeleted account count: " + deleteIndex);
+                found = 1;
+                return;
             }
         }
-        int j;
-        for(j = i; j<this.currentIndex-1; j++){
-            this.accountholders[j] = this.accountholders[j+1];
+
+        if(found == 0){
+           System.out.println("Account Not found!");
         }
-        this.accountholders[this.currentIndex--] = null;
-        deleteIndex++;
-        System.out.println("Account Deleted. \nDeleted account number: " + deleteIndex);
     }
 
     public void performtransaction(String number, double amount, String operation) {
@@ -109,8 +115,8 @@ public class BankSystem {
     }
 
     public void getAllAccountDetails(){
-        for(int i=0; i<this.currentIndex; i++){
-            System.out.println(this.accountholders[i]);
+        for(int i = 0; i < this.accountholders.size(); i++){
+            System.out.println(this.accountholders.get(i));
         }
     }
 }

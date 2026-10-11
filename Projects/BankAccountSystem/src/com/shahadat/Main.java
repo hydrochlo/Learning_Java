@@ -4,7 +4,7 @@ package com.shahadat;
 public class Main {
 
     public static void main(String args[]){
-        BankSystem banksys = new BankSystem(10);
+        BankSystem banksys = new BankSystem();
         banksys.addAccount("00011", "Rohim", 100);
         banksys.addAccount("00022", "Karim", 250);
         banksys.addAccount("00033", "Rohoman", 250);
