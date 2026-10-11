@@ -1,45 +1,23 @@
 package com.shahadat;
 
+
 public class Transaction {
-    private String transactionId ;
-    private String date;
-    private String type;
+    private String tid;
     private double amount;
     private String accountNumber;
+    private String operation;
 
-    public Transaction(String transactionId, String date, String type, double amount, String accountNumber) {
-        this.transactionId = transactionId;
-        this.date = date;
-        this.type = type;
+    public Transaction(String tid, double amount, String accountNumber, String operation) {
+        this.tid = tid;
         this.amount = amount;
         this.accountNumber = accountNumber;
+        this.operation = operation;
     }
 
-
-    public String getTransactionId() {
-        return this.transactionId;
+    public String transactionDetails(){
+        return this.tid + " " + this.operation + ": " + this.amount + " " + "\nAccount Number: " + this.accountNumber + " ";
     }
-
-    public String getDate() {
-        return this.date;
+    public String toString() {
+        return this.tid + " " + this.operation + ": " + this.amount + " " + "\nAccount Number: " + this.accountNumber + " ";
     }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public double getAmount() {
-        return this.amount;
-    }
-
-    public String getAccountNumber() {
-        return this.accountNumber;
-    }
-
-    public String getTransactionDetails(){
-        return "Transaction ID: " + this.transactionId +"\nDate: "+ this.date +"\nType: "+ this.type +"\nAmount: " +this.amount +"\nAccount Number: " + this.accountNumber;
-    }
-
-
-
 }
